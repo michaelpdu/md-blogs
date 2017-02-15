@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -366,9 +366,11 @@ Content source: 1 (target), length: 1000
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/26/CVE-2016-7200-CVE-2016-7201-Edge/" data-id="ciz3s82b80001eszzou20chiv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/26/CVE-2016-7200-CVE-2016-7201-Edge/" data-id="ciz71y3l50000m4zzx2ee0yva" class="article-share-link">Partager</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exploit-analysis/">exploit analysis</a></li></ul>
+
     </footer>
   </div>
   
@@ -404,9 +406,90 @@ Content source: 1 (target), length: 1000
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/13/begin-github-blog/" data-id="ciz3s82b40000eszzzgmixphz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/13/begin-github-blog/" data-id="ciz71y3lf0003m4zzsbokkbe2" class="article-share-link">Partager</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-thinking-of-embedded-flash-dump-in-flash-player" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/" class="article-date">
+  <time datetime="2016-08-31T13:51:47.000Z" itemprop="datePublished">2016-08-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/">利用flash player脱壳的思路</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h1><p>随着混淆工具在恶意flash中的使用越来越流行，一对一的脱壳手法已经不能满足需求，想找一种简便的方案，最后想在flash player中做点文章，既然flash player可以正确地执行flash，那么，脱壳对flash player而言，就不是问题。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>2015年的时候，做过这些事，当时没有记录如何找到hook point的过程，从而导致过了许久以后，出了问题，想重新找到其他版本flash player上的hook point的过程就显得较为耗时。不过，耗时归耗时，还是可以找到，这里将这次找hook point的思路整理出来，方便以后遇到类似问题所使用。</p>
+<p>最开始想做这个的时候，有两种思路：</p>
+<ul>
+<li>flash脱壳会用到loadBytes，那么，可以hook这个JIT函数，因为是JIT函数，所以，在hook之前需要做些其他的事，稍微有些麻烦。下面有两种实现，可以参考：<ul>
+<li>F-Secure实现的<a href="https://github.com/F-Secure/Sulo" target="_blank" rel="external">sulo</a>是基于PIN技术做的，本质上也是Hook了loadBytes函数</li>
+<li>作者实现的WinDBG plugin： <a href="https://github.com/michaelpdu/flashext" target="_blank" rel="external">flashext</a>，其中，就包括了Hook loadBytes是思路和实现</li>
+</ul>
+</li>
+<li>flash中的JIT函数最后应该还是会调用到flash player的inline函数，我们能不能找到这个点，然后，直接在inline function上做Hook</li>
+</ul>
+<p>因为第一种思路，作者已经在WinDBG Plugin中有了类似的实现，所以想去找找第二种是否有可能做到，如果能找到，应该会更简单一些。</p>
+<p>既然flash player可以将embedded flash解开并加载，那么，肯定会有加载embedded flash的指令，并且这些指令一定会检测magic number，所以，这些magic number就是一个很合适的点。</p>
+<h2 id="通过调试器找到准确的加载时机"><a href="#通过调试器找到准确的加载时机" class="headerlink" title="通过调试器找到准确的加载时机"></a>通过调试器找到准确的加载时机</h2><p>通过vmware+debugger的帮助，可以准备一个snapshot，使得在分配embedded flash的地址时是相同的基址，这样，就可以很方便地使用硬件断点来找到读写这个基址的指令。</p>
+<p>需要一个断点来辅助我们在加载embedded flash之前停下来，之前，有flashext的帮助，可以在loadbytes JIT function上断下来，而对于Windows 8以后内置的flash而言，之前的flashext也遇到同样的困境，hook point失效了。<br>那么我们需要找到其他的点，也辅助我们完整这个工作，通过搜索strings，可以看到，像FWS/CWS之类的string都没有找到合适的。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/1.jpg" alt=""></p>
+<p>那么，我们再试试找常量，因为我们知道FWS = \x46\x57\x53，CWS=\x43\x57\x53， ZWS=\x5A\x57\x53， 所以，\x57 \x53如果能够同时出现在一段指令中，说明可能是我们期望的目标。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/2.jpg" alt=""></p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/3.jpg" alt=""></p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/4.jpg" alt=""></p>
+<p>在这个上下文的指令中可以找到\x43,\x53,\x57之类的常量，我们可以分析一下这些指令的意思，的确也是在比较内存是否是CWS或者FWS之类的东西，太好了，那么，上调试器看看是否就是我们想要找的hook point?</p>
+<p>通过下面命令来设置断点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bp Flash+22870A</div></pre></td></tr></table></figure>
+<p>在调试环境中可以看到，这个点其实并非我们想要的点，不过，却可以用于辅助我们完成定位读写embedded flash的指令。（如之前使用flashext中给loadBytes设置breakpoint一样）</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/5.jpg" alt=""></p>
+<p>在我的调试环境中，执行前六次go命令，还没有触发解开embedded flash的动作，所以在memory中也是找不到的。第七次执行go命令，在memory中就可以找到相应的embedded flash。经过几次尝试以后，我们可以将embedded flash的分配地址固定下来，在我这里是0x0af3f000。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/6.jpg" alt=""></p>
+<p>通过硬件断点，可以方便知道哪条指令在这个地址上写了内容。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/7.jpg" alt=""></p>
+<p>也可以很方便知道，哪条指令会从这里读取数据，这里，很有可能就是我们想要的点，计算偏移，去IDA里看看。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/8.jpg" alt=""></p>
+<p>分析这段汇编指令以后可以知道这个函数接收两个参数，用于比较这两个string是否相等。这里，是比较ESI所指向的memory是否等于”CWS”,”FWS”或“ZWS”。配合调试器可以找到caller，然后，再到IDA中看看究竟。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/9.jpg" alt=""></p>
+<p>这段汇编指令很简单，就是检查ESI所指向的memory是否是SWF的magic number，看来距离我们的目标越来越近了。继续往下分析，看看谁调用了这个函数。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/10.jpg" alt=""></p>
+<p>分析相应的caller以后，可以弄明白这个函数是load flash的地方，其中，传入的参数，有一个是embedded flash的首地址，存放在ESI中，有一个是flash length，存放在EDI中。这样，我们的目标就确定了。</p>
+<h2 id="在IDA中搜索text查找FWS-CWS-ZWS"><a href="#在IDA中搜索text查找FWS-CWS-ZWS" class="headerlink" title="在IDA中搜索text查找FWS,CWS,ZWS"></a>在IDA中搜索text查找FWS,CWS,ZWS</h2><p>在上面的分析过程中，我发现magic number的字符串其实是有地方存放的，只是在string window中找不到。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/11.jpg" alt=""></p>
+<p>那么，有没有其他途径？可以试试在文本内容中搜索，只是速度较慢。</p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/12.jpg" alt=""></p>
+<p><img src="/images/thinking-of-embedded-flash-dump-in-flash-player/13.jpg" alt=""></p>
+<p>等待一段时间以后，可以看到，全文搜索以后，能符合我们需求的地方，也只有一个，而且，恰恰就在我们之前看到的check_flash_magic_number这个函数里。这种方式要比上面介绍的方式更快捷，如果不在意前面的思路，可以直接用这种方式找到相应的点。</p>
+<p>当然，还有其他的hook point，如果有人找到更合适的点，可以分享出来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/" data-id="ciz71y3l90001m4zzr6abvqw7" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flash/">flash</a></li></ul>
+
     </footer>
   </div>
   
@@ -423,15 +506,10 @@ Content source: 1 (target), length: 1000
 
   
     
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/exploit-analysis/">exploit analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a></li></ul>
     </div>
   </div>
 
@@ -439,7 +517,26 @@ Content source: 1 (target), length: 1000
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/exploit-analysis/" style="font-size: 10px;">exploit analysis</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -449,6 +546,10 @@ Content source: 1 (target), length: 1000
         
           <li>
             <a href="/2017/01/13/begin-github-blog/">开始使用GitHub写blog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/">利用flash player脱壳的思路</a>
           </li>
         
       </ul>
@@ -464,7 +565,7 @@ Content source: 1 (target), length: 1000
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Michael Du<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
