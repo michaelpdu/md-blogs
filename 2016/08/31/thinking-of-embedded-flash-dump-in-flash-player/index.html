@@ -9,29 +9,29 @@
 思路2015年的时候，做过这些事，当时没有记录如何找到hook point的过程，从而导致过了许久以后，出了问题，想重新找到其他版本flas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用flash player脱壳的思路">
-<meta property="og:url" content="http://yoursite.com/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/index.html">
+<meta property="og:url" content="https://michaelpdu.github.io/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/index.html">
 <meta property="og:site_name" content="michael_du's blog">
 <meta property="og:description" content="缘起随着混淆工具在恶意flash中的使用越来越流行，一对一的脱壳手法已经不能满足需求，想找一种简便的方案，最后想在flash player中做点文章，既然flash player可以正确地执行flash，那么，脱壳对flash player而言，就不是问题。
 思路2015年的时候，做过这些事，当时没有记录如何找到hook point的过程，从而导致过了许久以后，出了问题，想重新找到其他版本flas">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/1.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/2.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/3.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/4.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/5.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/6.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/7.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/8.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/9.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/10.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/11.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/12.jpg">
-<meta property="og:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/13.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/1.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/2.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/3.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/4.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/5.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/6.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/7.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/8.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/9.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/10.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/11.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/12.jpg">
+<meta property="og:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/13.jpg">
 <meta property="og:updated_time" content="2017-02-15T14:31:32.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用flash player脱壳的思路">
 <meta name="twitter:description" content="缘起随着混淆工具在恶意flash中的使用越来越流行，一对一的脱壳手法已经不能满足需求，想找一种简便的方案，最后想在flash player中做点文章，既然flash player可以正确地执行flash，那么，脱壳对flash player而言，就不是问题。
 思路2015年的时候，做过这些事，当时没有记录如何找到hook point的过程，从而导致过了许久以后，出了问题，想重新找到其他版本flas">
-<meta name="twitter:image" content="http://yoursite.com/images/thinking-of-embedded-flash-dump-in-flash-player/1.jpg">
+<meta name="twitter:image" content="https://michaelpdu.github.io/images/thinking-of-embedded-flash-dump-in-flash-player/1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="michael_du&#39;s blog" type="application/atom+xml">
   
@@ -58,7 +58,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">积土成山,风雨兴焉;积水成渊,蛟龙生焉</a>
+          <a href="/" id="subtitle">不想迷失在日常的工作中，在这里，记录下朝着自己的目标走过的每一个脚印。 -- “积土成山,风雨兴焉;积水成渊,蛟龙生焉”</a>
         </h2>
       
     </div>
@@ -73,12 +73,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://michaelpdu.github.io"></form>
       </div>
     </div>
   </div>
@@ -153,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/" data-id="ciz71y3l90001m4zzr6abvqw7" class="article-share-link">Partager</a>
+      <a data-url="https://michaelpdu.github.io/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/" data-id="cizdpaxjl00045gzze6qvyz7j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flash/">flash</a></li></ul>
@@ -165,7 +165,7 @@
 <nav id="article-nav">
   
     <a href="/2017/01/13/begin-github-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           开始使用GitHub写blog
@@ -173,6 +173,11 @@
       </div>
     </a>
   
+  
+    <a href="/2015/06/25/x64deepdive/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">深入Windows X64调试</div>
+    </a>
   
 </nav>
 
@@ -188,9 +193,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/exploit-analysis/">exploit analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/flash/">flash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样本分析/">样本分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻译/">翻译</a></li></ul>
     </div>
   </div>
 
@@ -198,9 +203,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/exploit-analysis/" style="font-size: 10px;">exploit analysis</a> <a href="/tags/flash/" style="font-size: 10px;">flash</a>
+      <a href="/tags/flash/" style="font-size: 10px;">flash</a> <a href="/tags/样本分析/" style="font-size: 20px;">样本分析</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a>
     </div>
   </div>
 
@@ -209,7 +214,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li></ul>
     </div>
   </div>
 
@@ -217,9 +222,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/02/07/AdGholas-sample-analysis/">AdGholas样本分析 - 隐藏之深，难以察觉</a>
+          </li>
         
           <li>
             <a href="/2017/01/26/CVE-2016-7200-CVE-2016-7201-Edge/">CVE-2016-7200 &amp; CVE-2016-7201 (Edge)</a>
@@ -231,6 +240,10 @@
         
           <li>
             <a href="/2016/08/31/thinking-of-embedded-flash-dump-in-flash-player/">利用flash player脱壳的思路</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/25/x64deepdive/">深入Windows X64调试</a>
           </li>
         
       </ul>
@@ -246,7 +259,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Michael Du<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
