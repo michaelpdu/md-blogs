@@ -5,6 +5,9 @@
 
 Use Reinforcement Learning to evade Machine Learning model, but don't break functionality.
 
+## Blogs
+* [Attacking Machine Learning with Adversarial Examples](https://blog.openai.com/adversarial-example-research/)
+
 ## Other Summary
 * [Awesome Adversarial Machine Learning](https://github.com/yenchenlin/awesome-adversarial-machine-learning),  yenchenlin's summary
 
