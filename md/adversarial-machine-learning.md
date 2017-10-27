@@ -5,6 +5,10 @@
 
 Use Reinforcement Learning to evade Machine Learning model, but don't break functionality.
 
+* [EvadeML](http://evademl.org/gpevasion/), Weilin Xu, USENIX Enigma 2017
+
+Use Genetic algorithm to generate evasive samples
+
 ## Blogs
 * [Attacking Machine Learning with Adversarial Examples](https://blog.openai.com/adversarial-example-research/)
 
