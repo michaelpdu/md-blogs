@@ -5,8 +5,6 @@
 
 [How to anchors into samples?](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/windbg-tricks-javascript-instrumentation.md)
 
-[AdGholas Sample Analysis](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/AdGholas-sample-analysis.md)
-
 ## HTML/JS/VBS Analysis
 
 [CVE-2016-7200-CVE-2016-7201-Edge](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/CVE-2016-7200-CVE-2016-7201-Edge.md)
