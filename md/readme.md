@@ -3,7 +3,7 @@
 
 ## Debugging Skills
 
-[How to anchors into samples?](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/windbg-tricks-javascript-instrumentation.md)
+[WinDBG tricks: add anchors into samples](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/windbg-tricks-javascript-instrumentation.md)
 
 ## HTML/JS/VBS Analysis
 
