@@ -10,8 +10,8 @@
   Use Genetic Algorithm to generate evasive samples to bypass PDF detection model.
 
 ## Papers
-
-* [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al.
+* [Adversarial Examples Are Not Easily Detected](https://arxiv.org/pdf/1705.07263.pdf), Nicholas Carlini and David Wagner, University of California, Berkeley
+* [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al., Penn State University
 
 ## Blogs
 * [Attacking Machine Learning with Adversarial Examples](https://blog.openai.com/adversarial-example-research/)
