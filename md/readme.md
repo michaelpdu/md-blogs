@@ -18,5 +18,8 @@
 # Machine Learning
 [Adversarial Machine Learning](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/adversarial-machine-learning.md)
 
+# Other Threats
+[Coin Miner](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/other.md)
+
 # Techical Blogs
 [A Complete Penetration Testing Tool List for Security Professionals](https://techincidents.com/complete-penetration-testing-tool/)
