@@ -11,6 +11,9 @@
 
 ## Papers
 * [Adversarial Examples Are Not Easily Detected](https://arxiv.org/pdf/1705.07263.pdf), Nicholas Carlini and David Wagner, University of California, Berkeley
+
+In order to better understand the space of adversarial examples, we survey ten recent proposals that are designed for detection and compare their efficacy. We show that all can be defeated by constructing new loss functions. We conclude that adversarial examples are significantly harder to detect than previously appreciated, and the properties believed to be intrinsic to adversarial examples are in fact not. Finally, we propose several simple guidelines for evaluating future proposed defenses.
+
 * [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al., Penn State University
 
 ## Blogs
