@@ -16,6 +16,7 @@
 [X64 Deep Dive](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/x64deepdive.md)
 
 # Machine Learning
+[Open Source ML Solution](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/open-source-ml-solution.md)
 [Adversarial Machine Learning](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/adversarial-machine-learning.md)
 
 # Other Threats
