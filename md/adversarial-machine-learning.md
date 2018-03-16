@@ -10,19 +10,19 @@
   Use Genetic Algorithm to generate evasive samples to bypass PDF detection model.
 
 ## Papers
-* [Adversarial Examples Are Not Easily Detected](https://arxiv.org/pdf/1705.07263.pdf), Nicholas Carlini and David Wagner, University of California, Berkeley
+* [Adversarial Examples Are Not Easily Detected](https://arxiv.org/pdf/1705.07263.pdf), Nicholas Carlini and David Wagner, University of California, Berkeley, 2017
 
 In order to better understand the space of adversarial examples, we survey ten recent proposals that are designed for detection and compare their efficacy. We show that all can be defeated by constructing new loss functions. We conclude that adversarial examples are significantly harder to detect than previously appreciated, and the properties believed to be intrinsic to adversarial examples are in fact not. Finally, we propose several simple guidelines for evaluating future proposed defenses.
 
-* [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al., Penn State University
+* [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al., Penn State University, 2017
 
 * [Generative Adversarial Nets](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf), Ian J. Goodfellow, et al. 2014
 
 We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake.
 
-* [Adversarial Machine Learning at Scale](https://arxiv.org/pdf/1611.01236.pdf) 
+* [Adversarial Machine Learning at Scale](https://arxiv.org/pdf/1611.01236.pdf), Alexey Kurakin, Ian Goodfellow, Samy Bengio, 2016
 
-* [Adversarial Spheres](https://arxiv.org/pdf/1801.02774.pdf)
+* [Adversarial Spheres](https://arxiv.org/pdf/1801.02774.pdf), Justin Gilmer, 2018
 
 * [Certifying Some Distributional Robustness with Principled Adversarial Training](https://openreview.net/pdf?id=Hk6kPgZA-)
 
