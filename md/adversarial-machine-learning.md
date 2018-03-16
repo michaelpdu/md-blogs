@@ -24,6 +24,8 @@ We propose a new framework for estimating generative models via an adversarial p
 
 * [Adversarial Spheres](https://arxiv.org/pdf/1801.02774.pdf)
 
+* [Certifying Some Distributional Robustness with Principled Adversarial Training](https://openreview.net/pdf?id=Hk6kPgZA-)
+
 ## Blogs
 * [Attacking Machine Learning with Adversarial Examples](https://blog.openai.com/adversarial-example-research/)
 * [对深度学习的逃逸攻击 — 探究人工智能系统中的安全盲区](http://bobao.360.cn/learning/detail/4569.html)
