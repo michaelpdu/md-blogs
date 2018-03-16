@@ -20,6 +20,10 @@ In order to better understand the space of adversarial examples, we survey ten r
 
 We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake.
 
+* [Adversarial Machine Learning at Scale](https://arxiv.org/pdf/1611.01236.pdf) 
+
+* [Adversarial Spheres](https://arxiv.org/pdf/1801.02774.pdf)
+
 ## Blogs
 * [Attacking Machine Learning with Adversarial Examples](https://blog.openai.com/adversarial-example-research/)
 * [对深度学习的逃逸攻击 — 探究人工智能系统中的安全盲区](http://bobao.360.cn/learning/detail/4569.html)
