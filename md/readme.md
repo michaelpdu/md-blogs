@@ -2,25 +2,24 @@
 # Security Technical Analysis
 
 ## Debugging Skills
-[WinDBG tricks: add anchors into samples](threat_analysis/windbg-tricks-javascript-instrumentation.md)
+[WinDBG tricks: add anchors into samples](tech_doc/windbg-tricks-javascript-instrumentation.md)
 
 ## HTML/JS/VBS Analysis
-[CVE-2016-7200-CVE-2016-7201-Edge](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/CVE-2016-7200-CVE-2016-7201-Edge.md)
+[CVE-2016-7200-CVE-2016-7201-Edge](threat_analysis/CVE-2016-7200-CVE-2016-7201-Edge.md)
 
 ## Flash Analysis
-[How to find hook point for dumping embedded flash?](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/thinking-of-embedded-flash-dump-in-flash-player.md)
-
-[How to dump embedded flash in FlashExt plugin?]()
+[How to find hook point for dumping embedded flash?](threat_analysis/thinking-of-embedded-flash-dump-in-flash-player.md)
 
 # Translation
-[X64 Deep Dive](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/x64deepdive.md)
+[X64 Deep Dive](tech_doc/x64deepdive.md)
 
 # Machine Learning
-[Open Source ML Solution](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/open-source-ml-solution.md)
-[Adversarial Machine Learning](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/adversarial-machine-learning.md)
+[Open Source ML Solution](machine_learning/open-source-ml-solution.md)
+
+[Adversarial Machine Learning](machine_learning/adversarial-machine-learning.md)
 
 # Other Threats
-[Coin Miner](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/other.md)
+[Coin Miner](threat_analysis/other_threats.md)
 
 # Techical Blogs
 [A Complete Penetration Testing Tool List for Security Professionals](https://techincidents.com/complete-penetration-testing-tool/)
