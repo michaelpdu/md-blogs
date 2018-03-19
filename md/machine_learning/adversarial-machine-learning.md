@@ -20,6 +20,10 @@ In order to better understand the space of adversarial examples, we survey ten r
 
 We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The training procedure for G is to maximize the probability of D making a mistake.
 
+* [Generating Adversarial Malware Examples for Black-Box Attacks Based on GAN](https://arxiv.org/pdf/1702.05983.pdf), Weiwei Hu and Ying Tan, 2017
+
+Machine learning has been used to detect new malware in recent years, while malware authors have strong motivation to attack such algorithms.Malware authors usually have no access to the detailed structures and parameters of the machine learning models used by malware detection systems, and therefore they can only perform black-box attacks. This paper proposes a generative adversarial network (GAN) based algorithm named MalGAN to generate adversarial malware examples, which are able to bypass black-box machine learning based detection models. MalGAN uses a substitute detector to fit the black-box malware detection system. A generative network is trained to minimize the generated adversarial examples’ malicious probabilities predicted by the substitute detector. The superiority of MalGAN over traditional gradient based adversarial example generation algorithms is that MalGAN is able to decrease the detection rate to nearly zero and make the retraining based defensive method against adversarial examples hard to work.
+
 * [Adversarial Machine Learning at Scale](https://arxiv.org/pdf/1611.01236.pdf), Alexey Kurakin, Ian Goodfellow, Samy Bengio, 2016
 
 * [Adversarial Spheres](https://arxiv.org/pdf/1801.02774.pdf), Justin Gilmer, 2018
