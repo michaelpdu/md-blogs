@@ -2,7 +2,7 @@
 # Security Technical Analysis
 
 ## Debugging Skills
-[WinDBG tricks: add anchors into samples](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/windbg-tricks-javascript-instrumentation.md)
+[WinDBG tricks: add anchors into samples](threat_analysis/windbg-tricks-javascript-instrumentation.md)
 
 ## HTML/JS/VBS Analysis
 [CVE-2016-7200-CVE-2016-7201-Edge](https://github.com/michaelpdu/michaelpdu.github.io/blob/master/md/CVE-2016-7200-CVE-2016-7201-Edge.md)
