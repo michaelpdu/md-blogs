@@ -40,6 +40,15 @@ Machine learning has been used to detect new malware in recent years, while malw
 
 Recently several deep learning approaches have been attempted to detect malware binaries using convolutional neural networks and stacked deep autoencoders. Although they have shown respectable performance on a large corpus of dataset, practical defense systems require precise detection during the malware outbreaks where only a handful of samples are available. This project demonstrates the effectiveness of the latent representations obtained through the adversarial autoencoder for malware outbreak detection, which solves fine-grained unsupervised clustering problem on a limited number of unlabeled samples. Using program code distributions mapped to semantic latent vectors, the model provides a highly effective neural signature that helps detecting newly arrived malware samples mutated with minor functional upgrade, function shuffling, or slightly modified obfuscations. In order to get the cluster number, the latent representation (z) is fed to any distance based clustering algorithms such as HDBSCAN.
 
+* [CleverHans](https://github.com/tensorflow/cleverhans)
+
+An adversarial example library for constructing attacks, building defenses, and benchmarking both
+
+* [Deep-pwning](https://github.com/cchio/deep-pwning)
+
+Deep-pwning is a lightweight framework for experimenting with machine learning models with the goal of evaluating their robustness against a motivated adversary.
+
+
 ## Other Summary
 * [Awesome Adversarial Machine Learning](https://github.com/yenchenlin/awesome-adversarial-machine-learning),  yenchenlin's summary
 
