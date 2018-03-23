@@ -49,8 +49,7 @@ An adversarial example library for constructing attacks, building defenses, and 
 
 Deep-pwning is a lightweight framework for experimenting with machine learning models with the goal of evaluating their robustness against a motivated adversary.
 
-* [Image-to-Image Translation with Conditional Adversarial Nets](https://phillipi.github.io/pix2pix/)
-
+* [Image-to-Image Translation with Conditional Adversarial Nets](https://phillipi.github.io/pix2pix/) [[PDF]](https://arxiv.org/pdf/1611.07004.pdf)
 We investigate conditional adversarial networks as a general-purpose solution to image-to-image translation problems. These networks not only learn the mapping from input image to output image, but also learn a loss function to train this mapping. This makes it possible to apply the same generic approach to problems that traditionally would require very different loss formulations. We demonstrate that this approach is effective at synthesizing photos from label maps, reconstructing objects from edge maps, and colorizing images, among other tasks. As a community, we no longer hand-engineer our mapping functions, and this work suggests we can achieve reasonable results without hand-engineering our loss functions either. 
 
 
