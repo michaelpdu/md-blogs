@@ -59,7 +59,7 @@ gn gen out/Default
 
 Building:
 ```
-ninja -C out\Default chrome
+ninja -C out/Default chrome
 ```
 
 A minimal solution that will let you open Chromium source code in the IDE but will not show any source files is:
