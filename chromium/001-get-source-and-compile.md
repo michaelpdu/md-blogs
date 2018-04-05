@@ -1,10 +1,15 @@
-# Get Source and Compile
+# prepare development environment
 
-## prepare development environment
+先准备好环境，再去拿code，要不会失败！！！有几个重要的环境变量需要提前设置好，如下：
+```
+DEPOT_TOOLS_WIN_TOOLCHAIN=0
+```
+如果重新指定了VS2017的安装目录，需要设置下面的环境变量
+```
+vs2017_install="D:\Program Files\Visual Studio 2017"
+```
 
-先准备好环境，再去拿code，要不会失败！！！务必将下面的环境变量设置好！！！
-
-### 
+## 之前的记录（for VS2015）
 
 As of March 11, 2016 Chromium requires Visual Studio 2015 to build.
 
@@ -31,7 +36,7 @@ Compilation is done through ninja, not Visual Studio.
 d:\source_code\chromium\depot_tools\src\native_client\src\trusted\validator_ragel\validator.h: warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
 ```
 
-## get source code
+# get source code
 
 Get source code:
 
@@ -50,7 +55,7 @@ git rebase-update
 gclient sync
 ```
 
-## compile code
+# compile code
 
 Set up the build:
 ```
@@ -67,7 +72,11 @@ A minimal solution that will let you open Chromium source code in the IDE but wi
 gn gen --ide=vs --sln=mini --filters="//chrome;//base;//content" out\Default
 ```
 
-## references
+# build in Linux
+
+refer to [Linux Build Instructions](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+
+# references
 
 More information about --filter could refer to following link:
 [https://bugs.chromium.org/p/chromium/issues/detail?id=589099](https://bugs.chromium.org/p/chromium/issues/detail?id=589099)
