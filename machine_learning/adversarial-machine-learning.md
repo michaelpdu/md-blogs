@@ -35,6 +35,7 @@ Machine learning has been used to detect new malware in recent years, while malw
 * [NCC Group Adversarial ML Whitepaper](https://www.nccgroup.trust/uk/our-research/adversarial-machine-learning-approaches-and-defences/)
 * [对深度学习的逃逸攻击 — 探究人工智能系统中的安全盲区](http://bobao.360.cn/learning/detail/4569.html)
 * [深度学习框架中的魔鬼 — 探究人工智能系统中的安全问题](http://blogs.360.cn/blog/devils-in-the-deep-learning-framework/)
+* [zhihu](https://zhuanlan.zhihu.com/c_129779767)
 
 ## Github
 * [Detecting malware outbreaks using adversarial autoencoder](https://adc.github.trendmicro.com/separk/aae), Sean Park
