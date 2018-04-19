@@ -46,6 +46,10 @@ Recently several deep learning approaches have been attempted to detect malware 
 
 An adversarial example library for constructing attacks, building defenses, and benchmarking both
 
+* [IBM Adversarial Robustness Toolbox](https://github.com/IBM/adversarial-robustness-toolbox)
+
+This is a library dedicated to adversarial machine learning. Its purpose is to allow rapid crafting and analysis of attacks and defense methods for machine learning models. The Adversarial Robustness Toolbox provides an implementation for many state-of-the-art methods for attacking and defending classifiers.
+
 * [Deep-pwning](https://github.com/cchio/deep-pwning)
 
 Deep-pwning is a lightweight framework for experimenting with machine learning models with the goal of evaluating their robustness against a motivated adversary.
