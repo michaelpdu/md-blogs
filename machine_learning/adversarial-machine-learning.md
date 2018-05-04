@@ -39,11 +39,13 @@ Machine learning has been used to detect new malware in recent years, while malw
 
 * [Adversarial Machine Learning at Scale](https://arxiv.org/pdf/1611.01236.pdf), Alexey Kurakin, Ian Goodfellow, Samy Bengio, 2016
 
+* [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al., Penn State University, 2017
+
+**Theory**
+
 * [Adversarial Spheres](https://arxiv.org/pdf/1801.02774.pdf), Justin Gilmer, 2018
 
 * [Certifying Some Distributional Robustness with Principled Adversarial Training](https://openreview.net/pdf?id=Hk6kPgZA-)
-
-* [On the (Statistical) Detection of Adversarial Examples](https://arxiv.org/pdf/1702.06280.pdf), Kathrin Grosse, et al., Penn State University, 2017
 
 ## Blogs
 
