@@ -79,6 +79,8 @@ Online WABT Demos: [https://cdn.rawgit.com/WebAssembly/wabt/aae5a4b7/demo/index.
 
 [Binaryen has built-in fuzzing and reducing capabilities](https://github.com/WebAssembly/binaryen/wiki/Fuzzing)
 
+[A WebAssembly subsystem for Linux](https://github.com/cervus-v/cervus)
+
 ## Summary
 
 - Curated list of awesome things regarding WebAssembly (wasm) ecosystem: [https://github.com/mbasso/awesome-wasm](https://github.com/mbasso/awesome-wasm)
