@@ -39,6 +39,8 @@ None
 
 ## Blogs
 
+[PoC of JavaScript engine from tunz](https://github.com/tunz/js-vuln-db)
+
 [EOS节点远程执行代码漏洞](https://www.anquanke.com/post/id/146497)
 
 [Google Chrome处理 WebAssembly Locals 时存在整数溢出漏洞(CVE-2018-6092)](https://bugs.chromium.org/p/project-zero/issues/detail?id=1546)
