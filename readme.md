@@ -23,3 +23,6 @@
 
 # Techical Blogs
 [A Complete Penetration Testing Tool List for Security Professionals](https://techincidents.com/complete-penetration-testing-tool/)
+
+# Books
+[Grey Hat Python](https://wizardforcel.gitbooks.io/grey-hat-python/content/index.html)
