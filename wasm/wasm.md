@@ -40,7 +40,11 @@ None
 ## Blogs
 
 [EOS节点远程执行代码漏洞](https://www.anquanke.com/post/id/146497)
+
 [Google Chrome处理 WebAssembly Locals 时存在整数溢出漏洞(CVE-2018-6092)](https://bugs.chromium.org/p/project-zero/issues/detail?id=1546)
+
+[Apple Safari - Wasm
+Section Exploit](https://labs.mwrinfosecurity.com/assets/BlogFiles/apple-safari-wasm-section-vuln-write-up-2018-04-16.pdf)
 
 ## Github
 
