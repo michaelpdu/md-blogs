@@ -8,7 +8,7 @@
 
 在生成命令中增加对于的gn选项，如下：
 ```
-python tools/dev/v8gen.py gen -b x64.release x64.release.afl -- use_afl=true optimize_for_fuzzing=true
+python tools/dev/v8gen.py gen -b ia32.release ia32.release.afl -- use_afl=true optimize_for_fuzzing=true
 ```
 
 如果需要编译x86 build，也可以将上面的x64.release替换为x86的，可以使用 v8gen.py list命令列出目前支持的平台。
@@ -26,33 +26,15 @@ arm64.release
 ia32.debug
 ia32.optdebug
 ia32.release
-mips64el.debug
-mips64el.optdebug
-mips64el.release
-mipsel.debug
-mipsel.optdebug
-mipsel.release
-ppc.debug
-ppc.optdebug
-ppc.release
-ppc64.debug
-ppc64.optdebug
-ppc64.release
-s390.debug
-s390.optdebug
-s390.release
-s390x.debug
-s390x.optdebug
-s390x.release
 x64.debug
 x64.optdebug
 x64.release
-
+...
 ```
 
 只编译v8_fuzzer的话，可以使用下面的命令：
 ```
-ninja -C out.gn/x64.release.afl/ v8_fuzzer 
+ninja -C out.gn/ia32.release.afl/ v8_fuzzer 
 ```
 
 切换到不同的branch上，方便验证老版本上的问题，以6.8版本为例：
@@ -73,6 +55,33 @@ git checkout xxx
 # 开启ASan，在build/config/sanitizers/sanitizers.gni中
 # Compile for Address Sanitizer to find memory bugs.
 is_asan = true
+```
 
+编译standalone_v8，可以将v8-standalone.cc拷贝到samples/下，然后，在BUILD.gn中增加下面的命令：
+```
+v8_executable("v8_standalone") {
+  sources = [
+    "samples/v8-standalone.cc",
+  ]
 
+  configs = [
+    # Note: don't use :internal_config here because this target will get
+    # the :external_config applied to it by virtue of depending on :v8, and
+    # you can't have both applied to the same target.
+    ":internal_config_base",
+  ]
+
+  deps = [
+    ":v8",
+    ":v8_libbase",
+    ":v8_libplatform",
+    "//build/win:default_exe_manifest",
+  ]
+}
+```
+
+然后，使用下面的命令可以单独生成v8_standalone工具：
+```
+python tools/dev/v8gen.py gen -b ia32.release ia32.release.6.8
+ninja -C out.gn/ia32.release.6.8/ v8_standalone 
 ```
