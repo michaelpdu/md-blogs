@@ -54,3 +54,25 @@ x64.release
 ```
 ninja -C out.gn/x64.release.afl/ v8_fuzzer 
 ```
+
+切换到不同的branch上，方便验证老版本上的问题，以6.8版本为例：
+```
+# https://v8project.blogspot.com/2018/06/v8-release-68.html
+# 创建并拉去6.8的分支
+git checkout -b 6.8 -t branch-heads/6.8
+# 拉去最新的code
+git pull origin
+# 查看分支
+git branch
+# 切换分支
+git checkout xxx
+```
+
+编译V8时，可以开启一些编译选项
+```
+# 开启ASan，在build/config/sanitizers/sanitizers.gni中
+# Compile for Address Sanitizer to find memory bugs.
+is_asan = true
+
+
+```
