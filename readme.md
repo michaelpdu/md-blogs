@@ -26,3 +26,4 @@
 
 # Books
 [Grey Hat Python](https://wizardforcel.gitbooks.io/grey-hat-python/content/index.html)
+[100 GCC Tips](https://wizardforcel.gitbooks.io/100-gcc-tips/content/)
