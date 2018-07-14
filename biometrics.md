@@ -38,6 +38,8 @@ Antal et al. recently published a comprehensive analysis of many classifiers, al
 
 [K-means++ vs. Behavioral Biometrics: One Loop to Rule Them All](http://wp.internetsociety.org/ndss/wp-content/uploads/sites/25/2018/02/ndss2018_03B-2_Negi_paper.pdf), Parimarjan Negi, et al, 2018
 
+With Targeted K-means++ we could compromise the security of 40-70% of users within ten tries. In contrast, with Indiscriminate  K-mean++, the security of 30-50% of users was compromised. 
+
 ### Speech Biometric
 
 [Attacks on Speech Biometric Authentication](http://citeseerx.ist.psu.edu/viewdoc/download?rep=rep1&type=pdf&doi=10.1.1.217.9184), K. Inthavisas and D. Lopresti, 2011
