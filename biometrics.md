@@ -4,6 +4,10 @@ Biometrics include xxx,xxx,xxx
 
 ## Biometrics and Algorithm
 
+### Fingerprint
+
+None
+
 ### Behavioral Biometric
 
 #### Keystroke Dynamic
