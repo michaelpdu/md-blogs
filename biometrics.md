@@ -4,7 +4,24 @@ Biometrics include xxx,xxx,xxx
 
 ## Biometrics and Algorithm
 
-### Fingerprint
+### Fingerprint Identification 
+
+[Introduction to Fingerprint Identification](http://www.pslc.ws/macrog/kidsmac/firehouse/arson/fbiprint.htm)
+
+`Fingerprint Recognition in Android`, more detailed information need to check source code
+
+Potential Process:
+- collect fingerprint
+- enhance image of fingerprint
+- match with database(different algorithms)
+
+[Fingerprint Image Enhancement: Algorithm and Performance Evaluation](https://www.researchgate.net/publication/3192878), Lin Hong, et al, 1998
+
+We present a fast fingerprint enhancement algorithm, which can adaptively improve the clarity of ridge and valley structures of input fingerprint images based on the estimated local ridge orientation and frequency.  
+
+[Finger Print Matching Algorithm for Android](https://www.ijert.org/download/6068/finger-print-matching-algorithm-for-android), K. Rathi and S. Sawarkar, 2013
+
+### Face Identification 
 
 None
 
