@@ -55,6 +55,9 @@ git checkout xxx
 # 开启ASan，在build/config/sanitizers/sanitizers.gni中
 # Compile for Address Sanitizer to find memory bugs.
 is_asan = true
+# Compile for Undefined Behaviour Sanitizer to find various types of
+# undefined behaviour (excludes vptr checks).
+is_ubsan = true
 ```
 
 编译standalone_v8，可以将v8-standalone.cc拷贝到samples/下，然后，在BUILD.gn中增加下面的命令：
