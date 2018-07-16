@@ -8,6 +8,8 @@
 
 [Vulnerability Discovery Against Apple Safari: Evaluating Complex Software Targets for Exploitable Vulnerabilities](http://blog.ret2.io/2018/06/13/pwn2own-2018-vulnerability-discovery/)
 
+[Smashing	The	Browser: From Vulnerability Discovery To Exploit](https://hitcon.org/2014/downloads/P1_06_Chen%20Zhang%20-%20Smashing%20The%20Browser%20-%20From%20Vulnerability%20Discovery%20To%20Exploit.pdf)
+
 工具
 
 [Domato: Google DOM Fuzzer](https://github.com/google/domato)
@@ -21,3 +23,7 @@
 [AFL/QEMU fuzzing with full-system emulation](https://github.com/nccgroup/TriforceAFL)
 
 [Code Coverage Explorer for IDA Pro](https://github.com/gaasedelen/lighthouse)
+
+[FunFuzz](https://github.com/MozillaSecurity/funfuzz)
+
+[State Fuzzer](https://github.com/demi6od/ChromeFuzzer)
