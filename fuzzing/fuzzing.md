@@ -5,8 +5,17 @@
 - [AFL Fuzzer Offical Site](http://lcamtuf.coredump.cx/afl/)
 - [AFL Fuzzer Github](https://github.com/mirrorer/afl)
 
+American Fuzzy Lop is a brute-force fuzzer coupled with an exceedingly simple but rock-solid instrumentation-guided genetic algorithm. It uses a modified form of edge coverage to effortlessly pick up subtle, local-scale changes to program control flow.
+
 - [Project Triforce: Run AFL on Everything!](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2016/june/project-triforce-run-afl-on-everything/)
 - [AFL/QEMU fuzzing with full-system emulation](https://github.com/nccgroup/TriforceAFL)
+
+This is a patched version of AFL that supports full-system fuzzing using QEMU. The included QEMU has been updated to allow tracing of branches when running a system emulator for x86_64. Extra instructions have been added to start AFL's forkserver, make fuzz settings, and mark the start and stop of test cases.
+
+- [Coverage-based Greybox Fuzzing as Markov Chain](https://www.comp.nus.edu.sg/~mboehme/paper/CCS16.pdf)
+- [AFLFast Github](https://github.com/mboehme/aflfast)
+
+In 24 hours, AFLFast exposes 3 previously unreported CVEs that are not exposed by AFL and exposes 6 previously unreported CVEs 7x faster than AFL. AFLFast produces at least an order of magnitude more unique crashes than AFL.
 
 ## 2. Grammar-based Fuzzing
 
