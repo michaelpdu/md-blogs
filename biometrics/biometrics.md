@@ -1,6 +1,8 @@
 # Biometrics and Adversarial Biometrics
 
-Biometrics include xxx,xxx,xxx
+Biometric includes but not limits in following characters:
+
+![examples_of_biometric](examples_of_biometric.PNG)
 
 ## Biometrics and Algorithm
 
