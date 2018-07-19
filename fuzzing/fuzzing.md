@@ -47,3 +47,7 @@ We design, implement, and evaluate NEUZZ, an efficient fuzzer that guides the fu
 We evaluate NEUZZ on 10 popular real-world programs and demonstrate that NEUZZ consistently outperforms AFL, a state-of-the-art evolutionary fuzzer, both at finding new bugs and achieving higher edge coverage. In total, NEUZZ found 36 previously unknown bugs that AFL failed to find and achieved, on average, 70 more edge coverage than AFL. Our results also demonstrate that NEUZZ can achieve average 9 more edge coverage while taking 16 less training time than other learning-enabled fuzzers.
 
 ![neuzz_overview](neuzz_overview.png)
+
+NEUZZ has two main steps: 
+- (1) Training an NN to learn the logic of the program under test.
+- (2) Computing gradient of the model to locate the critical bytes in input and mutate them based on the gradient value.
