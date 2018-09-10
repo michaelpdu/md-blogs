@@ -7,7 +7,7 @@ usbmuxd自带工具iproxy，iproxy可以快捷连接iPhone操作。由于Mac上�
 
 终端输入：
 ```
-iproxy 2525 22
+iproxy 25025 22
 ```
 然后会自动显示如下等待连接字样
 ```
@@ -16,10 +16,17 @@ waiting for connection
 
 在另外一个终端输入：
 ```
-ssh -p 2222 root@127.0.0.1
+ssh -p 25025 root@127.0.0.1
 ```
 
 参考：[SSH连接越狱iPhone](https://www.jianshu.com/p/d5fbacb1bf5c)
+
+下面的命令是让iproxy在后台运行：
+
+```
+nohup iproxy 25025 22 > /dev/null 2>&1 &
+ssh root@localhost -p 25025
+```
 
 ### 默认密码
 
@@ -27,6 +34,27 @@ ssh -p 2222 root@127.0.0.1
 ```
 alpine
 ```
+
+## 使用LLDB调试
+
+### 配置debugserver
+
+### 在iOS上用debugserver来attach进程
+
+启动debugserver，并attach SpringBoard，开放端口1234给LLDB客户端连接
+
+```
+debugserver *:25026 -a "SpringBoard"
+```
+
+在MacOS的终端上，先做端口转发，然后，在lldb里连接
+
+```
+nohup iproxy 25026 25026 > /dev/null 2>&1 &
+process connect connect://localhost:25026
+```
+
+参考：[iOS应用逆向工程](http://iosre.com/t/debugserver-lldb-gdb/65)
 
 
 # 其他信息
