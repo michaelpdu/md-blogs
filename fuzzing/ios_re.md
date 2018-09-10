@@ -20,3 +20,10 @@ ssh -p 2222 root@127.0.0.1
 ```
 
 参考：[SSH连接越狱iPhone](https://www.jianshu.com/p/d5fbacb1bf5c)
+
+### 默认密码
+
+越狱以后的默认密码：
+```
+alpine
+```
