@@ -27,3 +27,19 @@ ssh -p 2222 root@127.0.0.1
 ```
 alpine
 ```
+
+
+# 其他信息
+
+## iPhone与CPU架构对应关系
+
+```
+armv6: iPhone、iPhone 2、iPhone 3G、iPod Touch(第一代)、iPod Touch(第二代)       
+
+armv7: iPhone 3Gs、iPhone 4、iPhone 4s、iPad、iPad 2
+
+armv7s: iPhone 5、iPhone 5c (静态库只要支持了armv7,就可以在armv7s的架构上运行)
+
+arm64(注:无armv64): iPhone 5s、iPhone 6、iPhone 6 Plus、iPhone 6s、iPhone 6s Plus、 iPhone 7 、iPhone 7 Plus、iPad Air、iPad Air2、iPad mini2、iPad mini3、iPad mini4、iPad Pro
+
+```
