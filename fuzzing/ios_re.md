@@ -51,6 +51,8 @@ debugserver *:25026 -a "SpringBoard"
 
 ```
 nohup iproxy 25026 25026 > /dev/null 2>&1 &
+
+lldb
 process connect connect://localhost:25026
 ```
 
