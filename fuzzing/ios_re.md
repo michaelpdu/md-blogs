@@ -41,6 +41,8 @@ alpine
 
 ### 在iOS上用debugserver来attach进程
 
+#### attach process
+
 启动debugserver，并attach SpringBoard，开放端口1234给LLDB客户端连接
 
 ```
@@ -57,6 +59,15 @@ process connect connect://localhost:25026
 ```
 
 参考：[iOS应用逆向工程](http://iosre.com/t/debugserver-lldb-gdb/65)
+
+#### start process
+
+```
+debugserver -x backboard *:25026 path-to-application
+Note:
+1) backboard可以看到用户界面
+2）posix看不到UI
+```
 
 
 # 其他信息
