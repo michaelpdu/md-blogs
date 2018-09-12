@@ -151,3 +151,7 @@ armv7s: iPhone 5、iPhone 5c (静态库只要支持了armv7,就可以在armv7s�
 arm64(注:无armv64): iPhone 5s、iPhone 6、iPhone 6 Plus、iPhone 6s、iPhone 6s Plus、 iPhone 7 、iPhone 7 Plus、iPad Air、iPad Air2、iPad mini2、iPad mini3、iPad mini4、iPad Pro
 
 ```
+
+## LLDB Cheatsheet
+
+[LLDB Cheatsheet](https://www.nesono.com/sites/default/files/lldb%20cheat%20sheet.pdf)
