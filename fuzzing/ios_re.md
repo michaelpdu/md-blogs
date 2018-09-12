@@ -137,6 +137,21 @@ register write pc `$lr`
 c
 ```
 
+更多细节可以参考[https://segmentfault.com/a/1190000012199291](https://segmentfault.com/a/1190000012199291)
+
+### LLDB+Python
+
+LLD内置Python解释器，这样就可以做很多事了。
+
+详细可以参考官方文档：[https://lldb.llvm.org/python-reference.html](https://lldb.llvm.org/python-reference.html)
+
+## Cycript
+
+越狱以后，iphone上可以安装Cycript，非常方便的脚本工具。
+
+详细可以参考：[http://www.cycript.org/](http://www.cycript.org/)
+
+
 # 其他信息
 
 ## iPhone与CPU架构对应关系
