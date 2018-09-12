@@ -70,6 +70,12 @@ DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib /var/mobile/Applications/xxxxxxxx-xxxx
 lipo -thin arm64 ./debugserver -output ./debugserver
 ```
 
+给debugserver添加task_for_pid权限，需要先下载[ent.xml](http://7xibfi.com1.z0.glb.clouddn.com/uploads/default/668/c134605bb19a433f.xml)， 然后，用下面的命令:
+
+```
+ldid -Sent.xml debugserver
+```
+
 然后，将瘦身的debugserver再拷贝到iphone的/user/bin目录下，可以直接执行
 
 ### 在iOS上用debugserver来attach进程
