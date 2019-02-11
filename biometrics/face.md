@@ -9,6 +9,7 @@
 ## Other DB
 
 [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html) The CIFAR-10 and CIFAR-100 are labeled subsets of the 80 million tiny images dataset.
+![](https://storage.googleapis.com/kaggle-competitions/kaggle/3649/media/cifar-10.png)
 
 ## StyleGAN
 ![](https://github.com/NVlabs/stylegan/blob/master/stylegan-teaser.png)
