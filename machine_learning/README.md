@@ -8,18 +8,21 @@
 
 ## StyleGAN
 
-可以生成高清人脸图像的生成网络
-
-![](https://github.com/NVlabs/stylegan/blob/master/stylegan-teaser.png)
-
-论文：[StyleGAN Thesis](https://arxiv.org/pdf/1812.04948.pdf)，Source Code: [StyleGAN @ Github](https://github.com/NVlabs/stylegan)
+可以生成高清人脸图像的生成网络，论文：[StyleGAN Thesis](https://arxiv.org/pdf/1812.04948.pdf)，Source Code: [StyleGAN @ Github](https://github.com/NVlabs/stylegan)
 
 # Deep Learning
 
-[Deep Learning with Python(cn)](https://cnbeining.github.io/deep-learning-with-python-cn/)
+Deep Learning(花书)：[英文版](http://www.deeplearningbook.org/), [中文翻译版](https://github.com/exacity/deeplearningbook-chinese)
 
-[Deep Reinforcement Learning for Keras](https://github.com/keras-rl/keras-rl)
+Python版本的深度学习：[中文版](https://cnbeining.github.io/deep-learning-with-python-cn/)
 
+莫烦介绍TensorFlow：[TensorFlow](https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/)，[进化算法](https://morvanzhou.github.io/tutorials/machine-learning/evolutionary-algorithm/)
+
+## Github上优秀的项目
+
+使用Keras实现的各种GAN：[Link](https://github.com/eriklindernoren/Keras-GAN)
+
+Deep Reinforcement Learning for Keras: [Link](https://github.com/keras-rl/keras-rl)
 
 # 鉴别黄色图像/生成模型无法检测的黄色图像
 
