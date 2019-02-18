@@ -19,3 +19,8 @@
 [Deep Learning with Python(cn)](https://cnbeining.github.io/deep-learning-with-python-cn/)
 
 [Deep Reinforcement Learning for Keras](https://github.com/keras-rl/keras-rl)
+
+
+# 鉴别黄色图像/生成模型无法检测的黄色图像
+
+[黄色图片数据库](https://github.com/alexkimxyz/nsfw_data_scrapper)
