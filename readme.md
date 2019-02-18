@@ -23,10 +23,6 @@
 
 [Adversarial Machine Learning](machine_learning/adversarial-machine-learning.md)
 
-# Other Threats
-
-[Coin Miner](threat_analysis/other_threats.md)
-
 # Techical Blogs
 
 [A Complete Penetration Testing Tool List for Security Professionals](https://techincidents.com/complete-penetration-testing-tool/)
