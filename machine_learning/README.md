@@ -4,6 +4,8 @@
 
 知乎上通俗易懂的入门文章 [https://zhuanlan.zhihu.com/p/27440393](https://zhuanlan.zhihu.com/p/27440393)
 
+![](https://pic2.zhimg.com/80/v2-7319eab235d83fe971fb769f62cbb15d_hd.png)
+
 ## StyleGAN
 
 可以生成高清人脸图像的生成网络
