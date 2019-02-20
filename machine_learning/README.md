@@ -10,6 +10,10 @@
 
 可以生成高清人脸图像的生成网络，论文：[StyleGAN Thesis](https://arxiv.org/pdf/1812.04948.pdf)，Source Code: [StyleGAN @ Github](https://github.com/NVlabs/stylegan)
 
+在生成人脸的基础上，还需要考虑让生成的人脸图像都是正视摄像头的，这就涉及到Head Pose Estimation，这里，我们使用[Deepgaze](https://github.com/mpatacchiola/deepgaze)预测头部扭动的角度，将角度限制在0-20度，超过这个限制的，需要做惩罚。
+
+虽然，StyleGAN生成的人脸图像已经比较高清，但是，也还是会有一些生成的图像清晰度不够高，这样，就需要增加另外一个约束条件，强制模型生成高清的人脸图像。这里，对图像的清晰度判断又涉及到Image Quality Assessment(IQA)的技术。
+
 ## 有趣的GAN
 
 让目标人物生成跳舞动作：[Everybody Dance Now!](https://twitter.com/hardmaru/status/1032762806796312576)
