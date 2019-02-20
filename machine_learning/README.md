@@ -44,6 +44,9 @@ feature map作为input，用不含参数的filter（小方框自由设计尺寸�
 
 ![](https://pic3.zhimg.com/80/v2-18dd32366cd7fc7a097c108832d7dad6_hd.jpg)
 
+### 激活函数(activation function)
+目的是解决线性不可分问题
+
 ## Github上优秀的Deep Learning项目
 
 Deep Reinforcement Learning for Keras: [Link](https://github.com/keras-rl/keras-rl)
