@@ -10,6 +10,9 @@ ImageNet [http://image-net.org/](http://image-net.org/)
 
 ![](https://pic2.zhimg.com/80/v2-7319eab235d83fe971fb769f62cbb15d_hd.png)
 
+GAN模型没有损失函数，优化过程是一个“二元极小极大博弈(minimax two-player game)”问题，下面是模型的价值函数：
+
+
 ## StyleGAN
 
 可以生成高清人脸图像的生成网络，论文：[StyleGAN Thesis](https://arxiv.org/pdf/1812.04948.pdf)，Source Code: [StyleGAN @ Github](https://github.com/NVlabs/stylegan)
