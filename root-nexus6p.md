@@ -5,7 +5,6 @@
 
 -------------------
 
-
 1. How to enter into bootloader?
 - through adb command
 ```
@@ -31,3 +30,9 @@ Use the volume keys to scroll and power key to select the Reboot Bootloader opti
 - Navigate to where you have the root zip stored on your internal storage and select it.
 - Swipe to install.
 - Once the zip has installed you'll have an option to wipe cache/dalvik and an option to reboot system. Wipe the cache/dalvik, hit the back button, and hit the reboot system button. That's it.
+
+-------------------
+How to flash a new system?
+- Download offical firmware from [https://developers.google.com/android/images#angler](https://developers.google.com/android/images#angler)
+- go to bootloader
+- run flash-all
